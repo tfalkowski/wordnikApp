@@ -1,0 +1,33 @@
+<div>
+    <p-dataTable [value]="words" selectionMode="single" [(selection)]="selectedWord" (onRowSelect)="onRowSelect($event)" [paginator]="true" [rows]="10" [responsive]="true">
+        <header>Words</header>
+        <p-column field="id" header="Id" [sortable]="true"></p-column>
+        <p-column field="word" header="Word" [sortable]="true"></p-column>
+        <footer><div class="ui-helper-clearfix" style="width:100%">&copy; 2016</div></footer>
+    </p-dataTable>
+    
+    <p-dialog header="Word Details" [(visible)]="displayDialog" [responsive]="true" showEffect="fade" [modal]="true">
+        <div class="ui-grid ui-grid-responsive ui-fluid ui-grid-pad" *ngIf="word">
+            <div class="ui-grid-row">
+                <div class="ui-grid-col-4">Word</div>
+                <div class="ui-grid-col-8">{{word.word}}</div>
+            </div>
+            <div class="ui-grid-row">
+                <div class="ui-grid-col-4">Text</div>
+                <div class="ui-grid-col-8">{{word.text}}</div>
+            </div>
+            <div class="ui-grid-row">
+                <div class="ui-grid-col-4">Attribution Text</div>
+                <div class="ui-grid-col-8">{{word.attributionText}}</div>
+            </div>
+            <div class="ui-grid-row">
+                <div class="ui-grid-col-4">Source Dictionary</div>
+                <div class="ui-grid-col-8">{{word.sourceDictionary}}</div>
+            </div>
+            <div class="ui-grid-row">
+                <div class="ui-grid-col-4">Score</div>
+                <div class="ui-grid-col-8">{{word.score}}</div>
+            </div>
+        </div>
+    </p-dialog>
+</div>
